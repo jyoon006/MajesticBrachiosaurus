@@ -59,6 +59,7 @@ angular.module('nytebyte.choices', [])
     });
   };
 
+  //search Yelp 
   $scope.sendPreference= function () {
     Preference.sendPreference($scope.preference)
     .then(function (res,err) {
@@ -76,6 +77,7 @@ angular.module('nytebyte.choices', [])
     });
   };
 
+  //User removes saved choice
   $scope.removeChoice = function(choice) {
     var removeIndex = undefined;
     for (var i = 0; i < $scope.choices.length; i++) {
@@ -98,6 +100,7 @@ angular.module('nytebyte.choices', [])
     }
   };
 
+  //retrieve all users saved choices 
   $scope.getChoices = function () {
     Preference.getChoices()
     .then(function (res, err) {
@@ -111,6 +114,7 @@ angular.module('nytebyte.choices', [])
     });
   };
 
+  //User saves choice
   $scope.storeChoice = function (choice, index) {
     Preference.storeChoice(choice.id)
     .success(function success (response) {
