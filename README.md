@@ -20,7 +20,9 @@
 
 ## Usage
 
-> Create an event and collaborate with your friends to decide which restaurant is best preferred amongst your friends to eat!
+The landing page allows creating a unique event by entering a name, location, search radius, and date/time. No account creation or signup is required. Upon creation users are redirected to a custom, human readable url where all additional event actions will take place. This url can be shared with others for collaboration.
+
+On the event details page any user with access to the custom url can search for venues, save them as possible options, upvote existing options, and leave persistent comments on the event. The saved options are sorted by vote count and link to their Yelp page.
 
 ## Requirements
 
@@ -50,3 +52,4 @@ View the project roadmap [here](https://waffle.io/MajesticBrachiosaurus/Majestic
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+See [STYLE-GUIDE.md](STYLE-GUIDE.md) for style guide.
