@@ -13,18 +13,19 @@ var port = process.env.PORT || 8000;
 var uri = 'mongodb://testing:testing@ds017248.mlab.com:17248/heroku_pkxn9txr' || 'mongodb://localhost/brachiosaurus';
 mongoose.connect(uri);
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '../../client'));
 
 app.enable('trust proxy');
 
+// socket.io controls
 io.on('connection', function (socket) {
   // parse the event id from the socket headers
   var eventId = url.parse(socket.handshake.headers.referer).path.substr(1);
 
   // get existing messages from db
-  eventController.getMessages(eventId, function(messages){
+  eventController.getMessages(eventId, function (messages) {
     // send exisiting messages on new connection
     socket.emit('init', {
       messages: messages
@@ -42,11 +43,11 @@ io.on('connection', function (socket) {
   });
 });
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.send(200, '/');
 });
 
-http.listen(port, function() {
+http.listen(port, function () {
   console.log('Listening on port ' + port);
 });
 
