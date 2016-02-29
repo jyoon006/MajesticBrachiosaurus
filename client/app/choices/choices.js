@@ -4,8 +4,13 @@ angular.module('nytebyte.choices', [])
   $scope.preference = {
     'term': ''
   };
+  
+  //search results from Yelp
 
   $scope.searchresults = [];
+
+  //saved choices from users
+
   $scope.choices = [];
 
   $scope.getEventDetails = function () {
@@ -142,10 +147,10 @@ angular.module('nytebyte.choices', [])
     });
   };
 
-  // Populate rvent details and saved choices on load
+  // Populate event details and saved choices on load
 
   $scope.getEventDetails();
-  // $scope.getChoices();
+  
 })
 
 .factory('Preference', function ($http, $routeParams) {
