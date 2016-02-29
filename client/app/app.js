@@ -9,7 +9,9 @@ angular.module('nytebyte', [
   'ngFx'
 ])
 
+
 .config(function ($locationProvider, $routeProvider, $httpProvider) {
+
   $routeProvider
     .when('/', {
       templateUrl: 'app/event/event.html',
@@ -19,12 +21,15 @@ angular.module('nytebyte', [
       templateUrl: 'app/choices/choices.html',
       controller: 'PreferenceController'
     });
+    
 
   $locationProvider.html5Mode(true);
 })
 
+
 // Chat element directive
 .directive('chat', function () {
+
   return {
     restrict: 'E',
     controller: 'ChatController',

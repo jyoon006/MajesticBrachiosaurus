@@ -4,8 +4,13 @@ angular.module('nytebyte.choices', [])
   $scope.preference = {
     'term': ''
   };
+  
+  //search results from Yelp
 
   $scope.searchresults = [];
+
+  //saved choices from users
+
   $scope.choices = [];
 
   $scope.getEventDetails = function () {
@@ -54,6 +59,7 @@ angular.module('nytebyte.choices', [])
     });
   };
 
+  //search Yelp 
   $scope.sendPreference= function () {
     Preference.sendPreference($scope.preference)
     .then(function (res,err) {
@@ -71,6 +77,7 @@ angular.module('nytebyte.choices', [])
     });
   };
 
+  //User removes saved choice
   $scope.removeChoice = function(choice) {
     var removeIndex = undefined;
     for (var i = 0; i < $scope.choices.length; i++) {
@@ -93,6 +100,7 @@ angular.module('nytebyte.choices', [])
     }
   };
 
+  //retrieve all users saved choices 
   $scope.getChoices = function () {
     Preference.getChoices()
     .then(function (res, err) {
@@ -106,6 +114,7 @@ angular.module('nytebyte.choices', [])
     });
   };
 
+  //User saves choice
   $scope.storeChoice = function (choice, index) {
     Preference.storeChoice(choice.id)
     .success(function success (response) {
@@ -142,10 +151,10 @@ angular.module('nytebyte.choices', [])
     });
   };
 
-  // Populate rvent details and saved choices on load
+  // Populate event details and saved choices on load
 
   $scope.getEventDetails();
-  // $scope.getChoices();
+  
 })
 
 .factory('Preference', function ($http, $routeParams) {

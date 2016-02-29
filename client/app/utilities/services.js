@@ -1,6 +1,8 @@
 angular.module('nytebyte.services', [])
 
+
 // create sockets
+
 .factory('socket', function($rootScope) {
   var socket = io.connect();
   return {
